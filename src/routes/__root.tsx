@@ -87,10 +87,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Enterprise-grade AI co-pilot helping bank consultants detect threats, respond safely, and remain compliant.",
+          "VaultAI is the AI-powered Post-Breach Security Co-Pilot for frontline banking staff — detect threats, respond safely, and stay compliant.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "VaultAI — Post-Breach Security Co-Pilot" },
+      { name: "twitter:description", content: "VaultAI is the AI-powered Post-Breach Security Co-Pilot for frontline banking staff — detect threats, respond safely, and stay compliant." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e8cbe949-24a1-4e29-8f69-7a377dc649fd/id-preview-2ae930ee--61cf2983-aee0-4377-83f7-b438a1159238.lovable.app-1784189485284.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e8cbe949-24a1-4e29-8f69-7a377dc649fd/id-preview-2ae930ee--61cf2983-aee0-4377-83f7-b438a1159238.lovable.app-1784189485284.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
