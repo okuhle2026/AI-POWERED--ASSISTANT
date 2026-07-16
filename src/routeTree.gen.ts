@@ -9,38 +9,180 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppThreatScannerRouteImport } from './routes/app.threat-scanner'
+import { Route as AppTaskPlannerRouteImport } from './routes/app.task-planner'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppResearchRouteImport } from './routes/app.research'
+import { Route as AppIncidentsRouteImport } from './routes/app.incidents'
+import { Route as AppDashboardRouteImport } from './routes/app.dashboard'
+import { Route as AppComplianceRouteImport } from './routes/app.compliance'
+import { Route as AppChatRouteImport } from './routes/app.chat'
+import { Route as AppBreachResponseRouteImport } from './routes/app.breach-response'
 
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppThreatScannerRoute = AppThreatScannerRouteImport.update({
+  id: '/threat-scanner',
+  path: '/threat-scanner',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTaskPlannerRoute = AppTaskPlannerRouteImport.update({
+  id: '/task-planner',
+  path: '/task-planner',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppResearchRoute = AppResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppIncidentsRoute = AppIncidentsRouteImport.update({
+  id: '/incidents',
+  path: '/incidents',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppComplianceRoute = AppComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChatRoute = AppChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBreachResponseRoute = AppBreachResponseRouteImport.update({
+  id: '/breach-response',
+  path: '/breach-response',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/breach-response': typeof AppBreachResponseRoute
+  '/app/chat': typeof AppChatRoute
+  '/app/compliance': typeof AppComplianceRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/incidents': typeof AppIncidentsRoute
+  '/app/research': typeof AppResearchRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/task-planner': typeof AppTaskPlannerRoute
+  '/app/threat-scanner': typeof AppThreatScannerRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app/breach-response': typeof AppBreachResponseRoute
+  '/app/chat': typeof AppChatRoute
+  '/app/compliance': typeof AppComplianceRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/incidents': typeof AppIncidentsRoute
+  '/app/research': typeof AppResearchRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/task-planner': typeof AppTaskPlannerRoute
+  '/app/threat-scanner': typeof AppThreatScannerRoute
+  '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/breach-response': typeof AppBreachResponseRoute
+  '/app/chat': typeof AppChatRoute
+  '/app/compliance': typeof AppComplianceRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/incidents': typeof AppIncidentsRoute
+  '/app/research': typeof AppResearchRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/task-planner': typeof AppTaskPlannerRoute
+  '/app/threat-scanner': typeof AppThreatScannerRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/app/breach-response'
+    | '/app/chat'
+    | '/app/compliance'
+    | '/app/dashboard'
+    | '/app/incidents'
+    | '/app/research'
+    | '/app/settings'
+    | '/app/task-planner'
+    | '/app/threat-scanner'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/app/breach-response'
+    | '/app/chat'
+    | '/app/compliance'
+    | '/app/dashboard'
+    | '/app/incidents'
+    | '/app/research'
+    | '/app/settings'
+    | '/app/task-planner'
+    | '/app/threat-scanner'
+    | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/app/breach-response'
+    | '/app/chat'
+    | '/app/compliance'
+    | '/app/dashboard'
+    | '/app/incidents'
+    | '/app/research'
+    | '/app/settings'
+    | '/app/task-planner'
+    | '/app/threat-scanner'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +190,111 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/threat-scanner': {
+      id: '/app/threat-scanner'
+      path: '/threat-scanner'
+      fullPath: '/app/threat-scanner'
+      preLoaderRoute: typeof AppThreatScannerRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/task-planner': {
+      id: '/app/task-planner'
+      path: '/task-planner'
+      fullPath: '/app/task-planner'
+      preLoaderRoute: typeof AppTaskPlannerRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/research': {
+      id: '/app/research'
+      path: '/research'
+      fullPath: '/app/research'
+      preLoaderRoute: typeof AppResearchRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/incidents': {
+      id: '/app/incidents'
+      path: '/incidents'
+      fullPath: '/app/incidents'
+      preLoaderRoute: typeof AppIncidentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/compliance': {
+      id: '/app/compliance'
+      path: '/compliance'
+      fullPath: '/app/compliance'
+      preLoaderRoute: typeof AppComplianceRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/chat': {
+      id: '/app/chat'
+      path: '/chat'
+      fullPath: '/app/chat'
+      preLoaderRoute: typeof AppChatRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/breach-response': {
+      id: '/app/breach-response'
+      path: '/breach-response'
+      fullPath: '/app/breach-response'
+      preLoaderRoute: typeof AppBreachResponseRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppBreachResponseRoute: typeof AppBreachResponseRoute
+  AppChatRoute: typeof AppChatRoute
+  AppComplianceRoute: typeof AppComplianceRoute
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppIncidentsRoute: typeof AppIncidentsRoute
+  AppResearchRoute: typeof AppResearchRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppTaskPlannerRoute: typeof AppTaskPlannerRoute
+  AppThreatScannerRoute: typeof AppThreatScannerRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppBreachResponseRoute: AppBreachResponseRoute,
+  AppChatRoute: AppChatRoute,
+  AppComplianceRoute: AppComplianceRoute,
+  AppDashboardRoute: AppDashboardRoute,
+  AppIncidentsRoute: AppIncidentsRoute,
+  AppResearchRoute: AppResearchRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppTaskPlannerRoute: AppTaskPlannerRoute,
+  AppThreatScannerRoute: AppThreatScannerRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
