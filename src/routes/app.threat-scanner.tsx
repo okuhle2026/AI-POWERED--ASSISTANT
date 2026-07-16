@@ -5,7 +5,7 @@ import { AIResponseCard } from "@/components/vault/AIResponseCard";
 import { ScanSearch, Loader2, Link2, MessageSquare, Mail, Image, Sparkles, AlertTriangle } from "lucide-react";
 
 export const Route = createFileRoute("/app/threat-scanner")({
-  component: ThreatScanner;
+  component: ThreatScanner,
 });
 
 const samples = [
