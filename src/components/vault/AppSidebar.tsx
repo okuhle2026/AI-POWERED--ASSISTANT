@@ -31,7 +31,7 @@ export function AppSidebar() {
     <aside className="hidden md:flex md:w-64 shrink-0 flex-col border-r border-white/5 bg-sidebar/80 backdrop-blur-xl">
       <Link to="/" className="flex items-center gap-2.5 px-5 py-5 border-b border-white/5">
         <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-neon-purple to-electric-blue glow-purple">
-          <Shield className="h-4.5 w-4.5 text-white" strokeWidth={2} />
+          <Shield className="h-[1.125rem] w-[1.125rem] text-white" strokeWidth={2} />
         </div>
         <div>
           <div className="text-sm font-semibold tracking-tight text-gradient-brand">

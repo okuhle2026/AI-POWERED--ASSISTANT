@@ -36,7 +36,7 @@ function Landing() {
       <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-neon-purple to-electric-blue glow-purple">
-            <Shield className="h-4.5 w-4.5 text-white" strokeWidth={2} />
+            <Shield className="h-[1.125rem] w-[1.125rem] text-white" strokeWidth={2} />
           </div>
           <div>
             <div className="text-sm font-semibold tracking-tight text-gradient-brand">VaultAI</div>
